@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 
 class User extends Model {
     checkPassword(loginPw) {
-        return bcrypt.comparesSYnc(loginPw, this.password);
+        return bcrypt.compareSync(loginPw, this.password);
     }
 }
 
@@ -49,7 +49,7 @@ User.init(
 
     sequelize,
     timestamps: false,
-    freeezeTableName: true,
+    freezeTableName: true,
     underscored: true,
     modelName: 'user'
 }

@@ -34,7 +34,7 @@ Instructions.init(
     {
         sequelize,
         freezeTableName: true,
-        unerscored: true,
+        underscored: true,
         modelName: 'instructions'
     }
 );

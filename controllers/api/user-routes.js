@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
 });
 
 router.get('/:id', (req, res) => {
-    User,findOne({
+    User.findOne({
         attributes: {exclude: ['password'] },
         where: {
             user_id: req.params.id
@@ -120,7 +120,7 @@ router.put('/:id', Auth, (req, res) => {
 
 router.post('/login', async (req, res) => {
     try{
-        let findUser = await User.find({
+        let findUser = await User.findOne({
             where: {
                 email: req.body.email
             }

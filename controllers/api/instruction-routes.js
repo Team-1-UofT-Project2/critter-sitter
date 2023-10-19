@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const { Instructions } = require('../../models')
+const { Auth } = require('../../utils/authorize');  // Import the Auth middleware
+
 
 router.get('/', (req, res) => {
     Instructions.findAll()
