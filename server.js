@@ -9,9 +9,23 @@ const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection.js');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
+// const sess = {
+//     secret: 'can you keep a secret',
+//     cookie: {},
+//     resave: false,
+//     saveUninitialized: true,
+//     store: new SequelizeStore({
+//         db: sequelize
+//     })
+// };
+
+app.use(routes);  // Added this line to include all routes
+
 const sess = {
-    secret: 'can you keep a secret',
-    cookie: {},
+    secret: 'Super Secret Secret',
+    cookie: {
+        maxAge: 3600000  // Session will last for an hour
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({

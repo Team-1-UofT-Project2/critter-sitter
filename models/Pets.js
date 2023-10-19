@@ -21,7 +21,7 @@ Pets.init(
         },
         description: {
             type: DataTypes.STRING,
-            aloowNull: false
+            allowNull: false
         },
         image: {
             type: DataTypes.STRING,
