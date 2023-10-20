@@ -11,11 +11,11 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/login", (req, res) => {
-  if (req.session.loggedIn) {
-    res.redirect("/login");
-    return;
+  try {
+    res.render("login" /* , { loggedIn: req.session.loggedIn } */);
+  } catch (err) {
+    res.status(500).json(err);
   }
-  res.redirect("/login");
 });
 
 router.get("/sign-up", (req, res) => {
