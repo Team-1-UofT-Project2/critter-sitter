@@ -1,0 +1,135 @@
+:root {
+  --header-color: #31708e;
+  --whiteish-color: #f7f9fb;
+  --constrast-color: #687864;
+  --medium-blue: #5085a5;
+  --light-blue: #8fc1e3;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--whiteish-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensure the body takes at least the full viewport height */
+}
+
+header {
+  /* background-color: var(--header-color); */
+  /* Linear Gradient Background */
+  background: linear-gradient(
+    to bottom,
+    var(--header-color),
+    var(--medium-blue),
+    var(--light-blue)
+  );
+
+  padding: 10px 20px;
+}
+
+.header-text {
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 150%;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+nav a {
+  margin-right: 80px;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
+  margin-right: 40px;
+}
+
+nav li img {
+  margin-right: 500px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--whiteish-color);
+}
+
+button#get-started-btn {
+  background-color: var(--constrast-color);
+  color: var(--whiteish-color);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+main {
+  flex: 1; /* Allow the main content to expand and push the footer down */
+}
+
+footer {
+  /* background-color: var(--header-color); */
+  /*   background: linear-gradient(
+    to bottom,
+    var(--header-color),
+    var(--medium-blue),
+    var(--light-blue)
+  ); */
+  background: linear-gradient(
+    to bottom,
+    var(--header-color),
+    var(--medium-blue),
+    var(--light-blue)
+  );
+  padding: 10px 0; /* Adjust the padding as needed */
+  text-align: center;
+  color: var(--whiteish-color);
+  font-weight: bold;
+  font-size: 10px;
+}
+
+/* footer {
+  background-color: var(--header-color);
+  padding: 20px 0; 
+  text-align: center;
+  color: var(--whiteish-color);
+  font-weight: bold;
+  font-size: 16px;
+} */
+
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin: 5px 0;
+  color: var(--whiteish-color);
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  /* flex-wrap: wrap; */
+}
+
+.footer-column {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.footer-column h3 {
+  font-size: 20px;
+}
