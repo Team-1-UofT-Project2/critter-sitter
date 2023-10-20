@@ -66,7 +66,7 @@ nav a {
   color: var(--whiteish-color);
 }
 
-button#get-started-btn {
+#get-started-btn {
   background-color: var(--constrast-color);
   color: var(--whiteish-color);
   padding: 10px 20px;
@@ -93,7 +93,7 @@ footer {
     var(--medium-blue),
     var(--light-blue)
   );
-  padding: 10px 0; /* Adjust the padding as needed */
+  padding: 5px 600px; /* Adjust the padding as needed */
   text-align: center;
   color: var(--whiteish-color);
   font-weight: bold;
