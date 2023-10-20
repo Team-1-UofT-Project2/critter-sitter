@@ -3,12 +3,16 @@ const { Pets, User, Instructions } = require("../models");
 const withAuth = require("../utils/authorize");
 
 router.get("/", async (req, res) => {
-  res.render("homepage", { loggedIn: req.session.loggedIn });
+  try {
+    res.render("homepage" /* , { loggedIn: req.session.loggedIn } */);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/login", (req, res) => {
   if (req.session.loggedIn) {
-    res.redirect("/");
+    res.redirect("/login");
     return;
   }
   res.redirect("/login");
