@@ -3,7 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
-    <title>Sitter Critter</title>
+    <title>Critter Sitter</title>
   </head>
   <body>
     <header>
@@ -19,6 +19,7 @@
             /></li>
           <li class="header-text"><a href="/">Home</a></li>
           {{#if loggedIn}}
+            <li class="header-text"><a href="/dashboard">Dashboard</a></li>
             <button class="no-button" id="logout">Logout</button>
           {{else}}
             <li class="header-text"><a href="/login">Login</a></li>
