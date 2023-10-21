@@ -12,7 +12,7 @@ router.get("/", async (req, res) => {
 
 router.get("/login", (req, res) => {
   try {
-    res.render("login" /* { loggedIn: req.session.loggedIn } */);
+    res.render("login", { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -20,7 +20,7 @@ router.get("/login", (req, res) => {
 
 router.get("/sign-up", (req, res) => {
   try {
-    res.render("sign-up" /* { loggedIn: req.session.loggedIn } */);
+    res.render("sign-up", { loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -30,7 +30,7 @@ router.get("/sign-up", (req, res) => {
   res.render("sign-up");
 });*/
 
-router.get("/results", async (req, res) => {
+/* router.get("/results", async (req, res) => {
   Pets.findAll({
     where: {
       care_level: req.query.care_level,
@@ -43,6 +43,6 @@ router.get("/results", async (req, res) => {
     const results = petData.map((pet) => pet.get({ plain: true }));
     res.render("results", { loggedIn: req.session.loggedIn, results });
   });
-});
+}); */
 
 module.exports = router;

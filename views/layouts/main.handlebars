@@ -18,10 +18,15 @@
               alt="Critter Sitter Image"
             /></li>
           <li class="header-text"><a href="/">Home</a></li>
-          <li class="header-text"><a href="/login">Login</a></li>
-          <a href="/sign-up">
-            <button id="get-started-btn">GET STARTED</button>
-          </a>
+          {{#if loggedIn}}
+            <button class="no-button" id="logout">Logout</button>
+          {{else}}
+            <li class="header-text"><a href="/login">Login</a></li>
+            <a href="/sign-up">
+              <button id="get-started-btn">GET STARTED</button>
+            </a>
+          {{/if}}
+
         </ul>
 
       </nav>
@@ -60,5 +65,6 @@
       </div>
       <p>Copyright &copy; 2023 Critter Sitter</p>
     </footer>
+    <script src="/js/logout.js"></script>
   </body>
 </html>
