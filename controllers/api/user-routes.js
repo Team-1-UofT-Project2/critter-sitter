@@ -122,28 +122,31 @@ router.post("/login", async (req, res) => {
   try {
     let findUser = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
     if (!findUser) {
-      res.status(400).json({ message: "no user with that email" });
-      return;
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password. Please try again!" });
     }
 
-    const valCredentials = findUser.login(req.body.password);
-    if (!valCredentials) {
-      res.status(400).json({ message: "incorrect password" });
-      return;
+    const validPassword = await findUser.checkPassword(req.body.password);
+    if (!validPassword) {
+      // Password is incorrect, send an error response
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password. Please try again!" });
     }
 
     req.session.save(() => {
       req.session.user_id = findUser.id;
       req.session.loggedIn = true;
-      res.json({ user: findUser, message: "you are now logged in" });
+      res.json({ user: findUser, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "Internal server error" });
   }
 });
 
