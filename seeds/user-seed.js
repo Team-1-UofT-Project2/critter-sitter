@@ -20,8 +20,16 @@ const userData = [
         username: 'username4',
         email: 'username4@email.com',
         password: '3e6y9o'
+    },
+    {
+        username: '123',
+        email: '123@email.com',
+        password: 'abc123'
     }
 ]
 
-const seedUser = () => User.bulkCreate(userData);
+const seedUser = async () => {
+    await User.bulkCreate(userData);
+    console.log('Users seeded successfully');
+};
 module.exports = seedUser;
