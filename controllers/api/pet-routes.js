@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
-
+/* 
 router.get("/", (req, res) => {
   Pets.findAll({})
     .then((petData) => res.json(petData))
@@ -48,6 +48,6 @@ router.get("/:id", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+}); */
 
 module.exports = router;

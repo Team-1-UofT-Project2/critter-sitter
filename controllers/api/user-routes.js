@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Instructions, Pets } = require("../../models");
 const withAuth = require("../../utils/authorize");
 
-router.get("/", (req, res) => {
+/*router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -70,16 +70,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, user) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
-
 router.delete("/:id", (req, res) => {
   User.destroy({
     where: {
@@ -117,10 +107,30 @@ router.put("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+*/
 
+//Sign up route
+router.post("/signup", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
+      res.status(200).json({
+        user: userData,
+        message: "You are now registered and logged in!",
+      });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Login route
 router.post("/login", async (req, res) => {
   try {
-    let findUser = await User.findOne({
+    const findUser = await User.findOne({
       where: {
         username: req.body.username,
       },
@@ -147,6 +157,17 @@ router.post("/login", async (req, res) => {
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Logout route
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
