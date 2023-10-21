@@ -12,15 +12,23 @@ router.get("/", async (req, res) => {
 
 router.get("/login", (req, res) => {
   try {
-    res.render("login" /* , { loggedIn: req.session.loggedIn } */);
+    res.render("login" /* { loggedIn: req.session.loggedIn } */);
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
 router.get("/sign-up", (req, res) => {
-  res.render("sign-up");
+  try {
+    res.render("sign-up" /* { loggedIn: req.session.loggedIn } */);
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
+
+/*router.get("/sign-up", (req, res) => {
+  res.render("sign-up");
+});*/
 
 router.get("/results", async (req, res) => {
   Pets.findAll({
