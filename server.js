@@ -43,7 +43,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
 
-/* app.use(
+app.use(
   "/public",
   express.static(path.join(__dirname, "public"), {
     setHeaders: (res, path, stat) => {
@@ -52,7 +52,7 @@ app.use(express.static(path.join(__dirname, "public")));
       }
     },
   })
-); */
+);
 
 app.use(routes); // Added this line to include all routes
 

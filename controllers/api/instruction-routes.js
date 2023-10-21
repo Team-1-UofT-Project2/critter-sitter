@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize"); // Import the Auth middleware
 
-router.get("/", (req, res) => {
+/* router.get("/", (req, res) => {
   Instructions.findAll()
     .then((dbInstructionData) => res.json(dbInstructionData))
     .catch((err) => {
@@ -60,6 +60,6 @@ router.put("/:id", withAuth, (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
-});
+}); */
 
 module.exports = router;

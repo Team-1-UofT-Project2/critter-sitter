@@ -1,6 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../config/connection");
 const bcrypt = require("bcrypt");
+const Pets = require("./Pets");
 
 class User extends Model {
   checkPassword(loginPw) {
@@ -15,6 +16,11 @@ User.init(
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
     },
     email: {
       type: DataTypes.STRING,
@@ -54,5 +60,9 @@ User.init(
     modelName: "user",
   }
 );
+/*User.hasMany(Pets, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE', // This will delete associated pets if a user is deleted
+});*/
 
 module.exports = User;

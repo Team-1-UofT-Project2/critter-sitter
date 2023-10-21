@@ -1,14 +1,18 @@
 <section>
-  <h4>Login</h4>
-  <form>
-    <h1>Sorry, it's a test</h1>
-    <div>
-      <input type="email" id="email-sign-up" />
-      <label class="form-label" for="form1Example13">Email Address</label>
+  <h2>Login</h2>
+  <form class="form login-form">
+    <div class="form-group">
+      <label for="username-login">Username:</label>
+      <input class="form-input" type="text" id="username-login" />
     </div>
-    <div>
-      <input type="password" id="password-sign-up" />
-      <label class="form-label" for="form1Example13">Password</label>
+    <div class="form-group">
+      <label for="password-login">Password:</label>
+      <input class="form-input" type="password" id="password-login" />
+    </div>
+    <div class="form-group">
+      <button class="login-btn" type="submit">Login</button>
     </div>
   </form>
 </section>
+
+<script src="/js/login.js"></script>

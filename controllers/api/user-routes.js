@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { User, Instructions, Pets } = require("../../models");
 const withAuth = require("../../utils/authorize");
 
-router.get("/", (req, res) => {
+/*router.get("/", (req, res) => {
   User.findAll({
     attributes: { exclude: ["password"] },
   })
@@ -117,33 +117,65 @@ router.put("/:id", withAuth, (req, res) => {
       res.status(500).json(err);
     });
 });
+*/
 
+//Sign up route
+router.post("/signup", async (req, res) => {
+  try {
+    const userData = await User.create(req.body);
+
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.loggedIn = true;
+      res.status(200).json({
+        user: userData,
+        message: "You are now registered and logged in!",
+      });
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+// Login route
 router.post("/login", async (req, res) => {
   try {
-    let findUser = await User.findOne({
+    const findUser = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
     if (!findUser) {
-      res.status(400).json({ message: "no user with that email" });
-      return;
+      return res
+        .status(400)
+        .json({ message: "Incorrect username or password. Please try again!" });
     }
 
-    const valCredentials = findUser.checkPassword(req.body.password);
+    const valCredentials = await findUser.checkPassword(req.body.password);
     if (!valCredentials) {
-      res.status(400).json({ message: "incorrect password" });
+      res.status(400).json({ message: "Incorrect password" });
       return;
     }
 
     req.session.save(() => {
       req.session.user_id = findUser.id;
       req.session.loggedIn = true;
-      res.json({ user: findUser, message: "you are now logged in" });
+      res.json({ user: findUser, message: "You are now logged in!" });
     });
   } catch (err) {
     console.log(err);
-    res.status(500).json(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
+// Logout route
+router.post("/logout", (req, res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  } else {
+    res.status(404).end();
   }
 });
 
