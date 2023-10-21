@@ -70,7 +70,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.post("/logout", (req, user) => {
+router.post("/logout", (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
       res.status(204).end();
@@ -130,7 +130,7 @@ router.post("/login", async (req, res) => {
       return;
     }
 
-    const valCredentials = findUser.login(req.body.password);
+    const valCredentials = findUser.checkPassword(req.body.password);
     if (!valCredentials) {
       res.status(400).json({ message: "incorrect password" });
       return;

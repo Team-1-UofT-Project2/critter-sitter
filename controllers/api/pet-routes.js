@@ -15,7 +15,7 @@ router.get("/query", (req, res) => {
   console.log(req.query);
   Pets.findAll({
     where: {
-      // care_level: req.query.care_level
+      care_level: req.query.care_level
     },
   })
     .then((petData) => {
@@ -41,6 +41,7 @@ router.get("/:id", (req, res) => {
     .then((petData) => {
       if (!petData) {
         res.status(404).json({ message: "no pet found with this id!" });
+        return;
       }
       res.json(petData);
     })
