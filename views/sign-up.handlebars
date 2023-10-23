@@ -1,18 +1,26 @@
 <section>
-  <h4>Sign Up Today!</h4>
+  <h4 class="sign-up-today">Sign Up Today!</h4>
   <form class="form signup-form">
     <div>
-      <input type="username" id="username-sign-up" />
-      <label class="form-label">Username</label>
+      <div class="input-container">
+        <label class="form-label">Username: </label>
+        <input type="username" id="username-sign-up" class="form-input" />
+      </div>
     </div>
     <div>
-      <input type="email" id="email-sign-up" />
-      <label class="form-label">Email Address</label>
+      <div class="input-container">
+        <label class="form-label">Email Address: </label>
+        <input type="email" id="email-sign-up" class="form-input" />
+      </div>
     </div>
     <div>
-      <input type="password" id="password-sign-up" />
-      <label class="form-label">Password</label>
-      <button class="sign-up-btn" type="submit">SIGN UP</button>
+      <div class="input-container">
+        <label class="form-label">Password: </label>
+        <input type="password" id="password-sign-up" class="form-input" />
+      </div>
+    </div>
+    <div class="input-container">
+      <button class="sign-up-btn" type="submit">Sign Up</button>
     </div>
   </form>
 </section>
