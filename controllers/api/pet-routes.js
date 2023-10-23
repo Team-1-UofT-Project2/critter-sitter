@@ -2,7 +2,22 @@ const router = require("express").Router();
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
 
-router.get("/:id", withAuth, async (req, res) => {
+/* router.get("/new-pet", withAuth, async (req, res) => {
+  try {
+    // console.log(req.session.user_id);
+    res.render("new-pet", { loggedIn: true });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+}); */
+
+/* router.get("/new", withAuth, (req, res) => {
+  res.render("new-pet", {
+    loggedIn: req.session.loggedIn,
+  });
+}); */
+
+/* router.get("/:id", withAuth, async (req, res) => {
   try {
     const petsWithInstructions = await Pets.findOne(req.params.pet_id, {
       include: [
@@ -19,7 +34,7 @@ router.get("/:id", withAuth, async (req, res) => {
     if (!pets) {
       return res.status(404).json({ error: "Pet not found" });
     }
-    /*
+    
     const pet = petsWithInstructions.toJSON();
 
     const loggedIn = req.session.user_id ? true : false;
@@ -28,14 +43,14 @@ router.get("/:id", withAuth, async (req, res) => {
       loggedIn: loggedIn,
       loggedInUser: req.session.user_id,
       pet: pet,
-    });*/
+    });
     console.log(pets);
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); */
 
-router.get("/", withAuth, async (req, res) => {
+/* router.get("/", withAuth, async (req, res) => {
   try {
     const petData = await Pets.findAll({
       include: [User],
@@ -46,7 +61,7 @@ router.get("/", withAuth, async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
-});
+}); */
 
 /*
 router.get("/query", (req, res) => {

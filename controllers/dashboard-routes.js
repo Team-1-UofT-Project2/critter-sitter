@@ -2,6 +2,7 @@ const router = require("express").Router();
 const { Pets, User, Instructions } = require("../models");
 const withAuth = require("../utils/authorize");
 
+//Route to render dashboard
 router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -15,7 +16,7 @@ router.get("/", withAuth, async (req, res) => {
   }
 });
 
-// Route to get all pets from user that is logged in
+// Route to render dashboard with all pets from user that is logged in
 /*router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
@@ -42,5 +43,14 @@ router.get("/", withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });*/
+
+//Route to render new pet form
+router.get("/new-pet", withAuth, async (req, res) => {
+  try {
+    res.render("new-pet", { loggedIn: true });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
