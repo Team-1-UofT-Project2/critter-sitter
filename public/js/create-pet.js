@@ -1,33 +1,35 @@
-async function newPetForm (event) {
+async function newPetForm(event) {
     event.preventDefault();
-
-    const name = document.querySelector('').value;
-    const description = document.querySelector('').value;
-    const  careLevel = document.querySelector('').value;
-
-    if( name &&  description &&  careLevel ) {
-        const response = await fetch('/api/pets', {
+  
+    const name = document.querySelector('#name').value.trim();
+    const owner = document.querySelector('#owner').value.trim(); // declared owner here
+    const address = document.querySelector('#address').value.trim(); // declared address here
+    const description = document.querySelector('#description').value.trim();
+    const careLevel = document.querySelector('input[name="care-level"]:checked').value;
+  
+    if (name && description && careLevel && owner && address) { // added owner and address to the check
+        const response = await fetch('/api/pets/new-pet', {
             method: 'POST',
-            body: json.stringify({
-                name,
+            body: JSON.stringify({
+                pet_name: name,
+                owner,  // used shorthand property
+                address, // used shorthand property
                 description,
-                careLevel
+                care_level: careLevel
             }),
             headers: {
-                'Content-Type' : 'application/json'
+                'Content-Type': 'application/json'
             }
         });
-
-
+  
         if (response.ok) {
-            //path can either point you back to profile/ dashboard
-            document.location.replace('');
+            document.location.replace('/dashboard');
         } else {
-            alert(response.statusText)
+            alert(response.statusText);
         }
     } else {
-        alert('please fill out the fields')
+        alert('Please fill out the fields');
     }
 }
-
-document.querySelector('').addEventListener('submit', newPetForm)
+  
+document.querySelector('.pet-form').addEventListener('submit', newPetForm);
