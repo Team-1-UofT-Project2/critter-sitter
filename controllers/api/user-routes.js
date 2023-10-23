@@ -148,9 +148,11 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ message: "Incorrect username or password. Please try again!" });
     }
-
+    // req.session.user_id = findUser.dataValues.user_id;
+    // console.log(req.session.user_id);
     req.session.save(() => {
-      req.session.user_id = findUser.id;
+      // req.session.user_id = findUser.id;
+      req.session.user_id = findUser.dataValues.user_id;
       req.session.loggedIn = true;
       res.json({ user: findUser, message: "You are now logged in!" });
     });

@@ -25,6 +25,9 @@ const sess = {
   secret: "Super Secret Secret",
   cookie: {
     maxAge: 3600000, // Session will last for an hour
+    httpOnly: true,
+    secure: false,
+    sameSite: "strict",
   },
   resave: false,
   saveUninitialized: true,
