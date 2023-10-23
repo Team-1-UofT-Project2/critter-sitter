@@ -491,3 +491,10 @@ textarea {
   font-weight: bold;
   color: var(--constrast-color);
 }
+
+.pet-profile-pic {
+  border-radius: 20px;
+  border: 2px solid var(--light-blue);
+  width: 600px;
+  height: 350px;
+}
