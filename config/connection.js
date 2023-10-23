@@ -10,8 +10,9 @@ const sequelize = process.env.JAWSDB_URL
         host: "localhost",
         dialect: "mysql",
         port: 3306,
+        logging: false,
       },
-      console.log(`Connected to the blog_db database.`)
+      console.log(`Connected to the pet_db database.`)
     );
 
 module.exports = { sequelize };

@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../config/connection");
-const User = require('./User');
+//const User = require('./User');
 
 class Pets extends Model {}
 
@@ -31,8 +31,8 @@ Pets.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user', // This should match the model name of your User model
-        key: 'user_id',
+        model: "user", // This should match the model name of your User model
+        key: "user_id",
       },
     },
   },
@@ -44,6 +44,7 @@ Pets.init(
     modelName: "pets",
   }
 );
+
 /*Pets.belongsTo(User, {
   foreignKey: 'user_id',
 });
