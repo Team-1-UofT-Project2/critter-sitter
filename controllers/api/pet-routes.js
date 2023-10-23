@@ -37,6 +37,23 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
+router.post('/new-pet', withAuth, async (req, res) => {
+  try {
+    const newPet = await Pets.create({
+      pet_name: req.body.pet_name,
+      owner: req.body.owner,
+      address: req.body.address,
+      care_level: req.body.care_level,
+      description: req.body.description,
+      user_id: req.session.user_id, // adding the user_id to associate the pet with the logged-in user
+    });
+
+    res.status(200).json(newPet);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
 /* router.get("/:id", withAuth, async (req, res) => {
   try {
     const petsWithInstructions = await Pets.findByPk(req.params.id, {
