@@ -1,19 +1,19 @@
 <div class="main">
-  <button class="go-back-btn">&#x2B9C;</button>
+  <button class="go-back-btn" onclick="goBack()">&#x2B9C;</button>
   <div class="pets-container">
     <div class="box-container">
       <div class="pet-form-wrapper">
         <div class="pet-form-container">
           <form class="pet-form">
-            <label for="name">Name: </label>
+            <label for="name">Name: {{pet.pet_name}}</label>
             <input type="text" id="name" name="name" />
-            <label for="owner">Owner: </label>
+            <label for="owner">Owner: {{pet.owner}}</label>
             <input type="text" id="owner" name="owner" />
-            <label for="address">Address: </label>
+            <label for="address">Address: {{pet.address}}</label>
             <input type="text" id="address" name="address" />
             <div class="radio-buttons-container">
               <div class="radio-button-label">
-                <label for="care-level">Care Level: </label>
+                <label for="care-level">Care Level: {{pet.care_level}}</label>
               </div>
               <label class="radio-button">
                 <input type="radio" name="care-level" value="very low" />
@@ -44,7 +44,7 @@
               name="description"
               rows="15"
               style="resize: none"
-            ></textarea>
+            >{{pet.description}}</textarea>
           </div>
           <div id="upload-button">
             <img
@@ -61,3 +61,4 @@
     </div>
   </div>
 </div>
+<script src="../public/js/redirects.js"></script>

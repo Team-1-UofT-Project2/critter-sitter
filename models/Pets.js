@@ -12,6 +12,14 @@ Pets.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    owner: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    address: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     pet_name: {
       type: DataTypes.STRING,
       allowNull: false,
