@@ -6,11 +6,16 @@
         <div class="pet-form-container">
           <form class="pet-form">
             <label for="name">Name: </label>
-            <input type="text" id="name" name="name" value="{{pet.pet_name}}"/>
+            <input type="text" id="name" name="name" value="{{pet.pet_name}}" />
             <label for="owner">Owner: </label>
-            <input type="text" id="owner" name="owner" value="{{pet.owner}}"/>
+            <input type="text" id="owner" name="owner" value="{{pet.owner}}" />
             <label for="address">Address: </label>
-            <input type="text" id="address" name="address" value="{{pet.address}}"/>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value="{{pet.address}}"
+            />
             <div class="radio-buttons-container">
               <div class="radio-button-label">
                 <label for="care-level">Care Level: {{pet.care_level}}</label>
@@ -37,23 +42,27 @@
               </label>
             </div>
             <div class="description-box">
-                <label for="description">Description</label>
-                <textarea
+              <label for="description">Description</label>
+              <textarea
                 id="description"
                 name="description"
                 rows="15"
                 style="resize: none"
-                >{{pet.description}}</textarea>
+              >{{pet.description}}</textarea>
             </div>
             <div id="upload-button">
-                <img
+              <img
                 class="pet-profile-pic"
                 src="../public/images/pet1-profile-pic.jpg"
-                />
+              />
             </div>
             <div id="pet-save-cancel-buttons">
-                <button type="submit" class="pet-save-btn">Update Pet</button>
-                <button class="pet-cancel-btn" onclick="goBack()">Cancel</button>
+              <button
+                type="submit"
+                class="pet-save-btn"
+                data-petid="{{pet.pet_id}}"
+              >Save Changes</button>
+              <button class="pet-cancel-btn" onclick="goBack()">Cancel</button>
             </div>
           </form>
         </div>

@@ -95,29 +95,31 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.put("/:id", withAuth, async (req, res) => {
+router.put("/edit/:id", withAuth, async (req, res) => {
   try {
-    await Pets.update(
-      {
-        pet_name: req.body.pet_name,
-        owner: req.body.owner,
-        address: req.body.address,
-        care_level: req.body.care_level,
-        description: req.body.description,
-        // user_id: req.session.user_id,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
+    const petData = await Pets.findByPk(req.params.id);
+
+    if (!petData) {
+      res.status(404).json({ message: "No pet with this id!" });
+      return;
+    }
+
+    console.log(petData);
+
+    petData.pet_name = req.body.pet_name;
+    petData.owner = req.body.owner;
+    petData.address = req.body.address;
+    // petData.care_level = req.body.care_level;
+    petData.description = req.body.description;
+
+    await petData.save();
 
     res.status(200).json({ message: "Pet updated successfully!" });
   } catch (err) {
-    console.error(error);
-    res.status(500).json({ err: 'Internal Server Error', details: err.message });
-
+    console.error(err);
+    res
+      .status(500)
+      .json({ err: "Internal Server Error", details: err.message });
   }
 });
 

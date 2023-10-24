@@ -1,35 +1,28 @@
-async function editPet(event) {
-  event.preventDefault();
+document.querySelector(".pet-save-btn").addEventListener("click", async () => {
+  const petId = document.querySelector(".pet-save-btn").dataset.petid;
+  const name = document.querySelector("#name").value;
+  const owner = document.querySelector("#owner").value;
+  const address = document.querySelector("#address").value;
+  const description = document.querySelector("#description").value;
 
-  const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length - 1
-  ];
+  // Inside your event listener for the "Save Changes" button
+  try {
+    const response = await fetch(`/api/pets/edit/${petId}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        pet_name: name,
+        owner,
+        address,
+        description,
+        // care_level,
+      }),
+    });
 
-  const name = document.querySelector('#name').value.trim();
-  const owner = document.querySelector('#owner').value.trim();
-  const address = document.querySelector('#address').value.trim();
-  const description = document.querySelector('#description').value.trim();
-  // const careLevel = document.querySelector('input[name="care-level"]:checked').value;
-
-  const response = await fetch(`/api/pets/${id}`, {
-    method: 'PUT',
-    body: JSON.stringify({
-      pet_name: name,
-      owner,
-      address,
-      description,
-      // care_level: careLevel,
-    }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  if (response.ok) {
-    document.location.replace('/profile');
-  } else {
-    alert('Failed to edit pet');
+    window.location.href = `/api/pets/${petId}`;
+  } catch (error) {
+    console.error("Error:", error);
   }
-}
-
-document.querySelector('.pet-save-btn').addEventListener('click', editPet);
+});
