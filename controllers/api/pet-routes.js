@@ -57,7 +57,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post("/new-pet", withAuth, async (req, res) => {
+router.post("/new-pet", withAuth, upload.single('image'), async (req, res) => {
   try {
     const newPet = await Pets.create({
       pet_name: req.body.pet_name,
@@ -65,7 +65,8 @@ router.post("/new-pet", withAuth, async (req, res) => {
       address: req.body.address,
       care_level: req.body.care_level,
       description: req.body.description,
-      user_id: req.session.user_id, // adding the user_id to associate the pet with the logged-in user
+      user_id: req.session.user_id,
+      image: req.file.path // adding the user_id to associate the pet with the logged-in user
     });
 
     res.status(200).json(newPet);
