@@ -17,7 +17,7 @@ router.get("/", withAuth, async (req, res) => {
       nest: true,
     });
 
-    console.log(petData);
+    // console.log(petData);
     res.render("dashboard", { loggedIn: true, pets: petData });
   } catch (err) {
     res.status(500).json(err);
