@@ -11,11 +11,11 @@ const filestorageEngine = multer.diskStorage({
 });
 
 const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-      cb(null, true);
+  if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
+    cb(null, true);
   } else {
-      //cb(null, false);
-      cb(new Error('upload correct file type'))
+    //cb(null, false);
+    cb(new Error("upload correct file type"));
   }
 };
 
@@ -24,7 +24,7 @@ const upload = multer({
   limits: {
     fileSize: 1024 * 1024 * 10,
   },
-  fileFilter: fileFilter
+  fileFilter: fileFilter,
 });
 
 module.exports = {
