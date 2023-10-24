@@ -3,6 +3,25 @@ const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
 
 // Route to get a single pet with the url id
+router.get("/edit-pet/:id", withAuth, async (req, res) => {
+  console.log("Edit pet route hit");
+  try {
+    const petData = await Pets.findByPk(req.params.id);
+
+    if (!petData) {
+      return res.status(404).json({ error: "Pet not found" });
+    }
+
+    const pet = petData.get({ plain: true });
+    res.render("edit-pet", {
+      pet: pet,
+      loggedIn: req.session.user_id ? true : false,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const petsWithInstructions = await Pets.findByPk(req.params.id, {
@@ -37,7 +56,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post('/new-pet', withAuth, async (req, res) => {
+router.post("/new-pet", withAuth, async (req, res) => {
   try {
     const newPet = await Pets.create({
       pet_name: req.body.pet_name,
@@ -51,6 +70,54 @@ router.post('/new-pet', withAuth, async (req, res) => {
     res.status(200).json(newPet);
   } catch (err) {
     res.status(400).json(err);
+  }
+});
+
+router.delete("/:id", withAuth, async (req, res) => {
+  try {
+    const petData = await Pets.destroy({
+      where: {
+        pet_id: req.params.id,
+        // user_id: req.session.user_id, // Ensure the user can only delete their own pets
+        // commented out because user_id is undefined and prevents from deleting pet
+      },
+    });
+
+    if (!petData) {
+      res.status(404).json({ message: "No pet found with this id!" });
+      return;
+    }
+
+    res.status(200).json(petData);
+  } catch (err) {
+    console.error("Error while deleting pet:", err);
+    res.status(500).json(err);
+  }
+});
+
+router.put("/:id", withAuth, async (req, res) => {
+  try {
+    await Pets.update(
+      {
+        pet_name: req.body.pet_name,
+        owner: req.body.owner,
+        address: req.body.address,
+        care_level: req.body.care_level,
+        description: req.body.description,
+        // user_id: req.session.user_id,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+
+    res.status(200).json({ message: "Pet updated successfully!" });
+  } catch (err) {
+    console.error(error);
+    res.status(500).json({ err: 'Internal Server Error', details: err.message });
+
   }
 });
 
