@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
-const { upload } = require('../../utils/image-uploader')
+//const { upload } = require('../../utils/image-uploader')
 
 // Route to get a single pet with the url id
 router.get("/edit-pet/:id", withAuth, async (req, res) => {
@@ -57,7 +57,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post("/new-pet", withAuth, upload.single('image'), async (req, res) => {
+router.post("/new-pet", withAuth, async (req, res) => {
   try {
     const newPet = await Pets.create({
       pet_name: req.body.pet_name,
@@ -66,7 +66,7 @@ router.post("/new-pet", withAuth, upload.single('image'), async (req, res) => {
       care_level: req.body.care_level,
       description: req.body.description,
       user_id: req.session.user_id,
-      image: req.file.path // adding the user_id to associate the pet with the logged-in user
+      //image: req.file.path // adding the user_id to associate the pet with the logged-in user
     });
 
     res.status(200).json(newPet);
