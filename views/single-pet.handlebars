@@ -6,45 +6,23 @@
         <div class="pet-form-container">
           <form class="pet-form">
             <label for="name">Name: {{pet.pet_name}}</label>
-            <input type="text" id="name" name="name" />
             <label for="owner">Owner: {{pet.owner}}</label>
-            <input type="text" id="owner" name="owner" />
             <label for="address">Address: {{pet.address}}</label>
-            <input type="text" id="address" name="address" />
             <div class="radio-buttons-container">
               <div class="radio-button-label">
                 <label for="care-level">Care Level: {{pet.care_level}}</label>
               </div>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="very low" />
-                Very Low
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="low" />
-                Low
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="medium" />
-                Medium
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="high" />
-                High
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="very high" />
-                Very High
-              </label>
             </div>
           </form>
           <div class="description-box">
             <label for="description">Description</label>
-            <textarea
+            <p
+              class="pet-description"
               id="description"
               name="description"
               rows="15"
               style="resize: none"
-            >{{pet.description}}</textarea>
+            >{{pet.description}}</p>
           </div>
           <div id="upload-button">
             <img
@@ -61,4 +39,4 @@
     </div>
   </div>
 </div>
-<script src="../public/js/redirects.js"></script>
+<script src="/js/redirects.js"></script>
