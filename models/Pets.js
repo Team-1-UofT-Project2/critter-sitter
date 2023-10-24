@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../config/connection");
-//const User = require('./User');
+// const User = require("./User");
 
 class Pets extends Model {}
 
@@ -38,6 +38,7 @@ Pets.init(
     },*/
     user_id: {
       type: DataTypes.INTEGER,
+      // allowNull: false,
       references: {
         model: "user", // This should match the model name of your User model
         key: "user_id",

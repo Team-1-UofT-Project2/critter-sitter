@@ -1,19 +1,37 @@
-const seedPets = require("./pet-seed");
-const seedUser = require("./user-seed");
-
+const { User, Pets, Instructions } = require("../models");
 const { sequelize } = require("../config/connection");
 
-async function seedAll() {
-  await sequelize.sync({ force: true });
-  console.log("database is synced");
+// Update imports to use .js files
+const userData = require("./user-seed.json");
+const petData = require("./pet-seed.json");
 
-  await seedPets();
-  console.log("pets are seeded");
+const seedDatabase = async () => {
+  try {
+    await sequelize.sync({ force: true });
 
-  await seedUser();
-  console.log("users are seeded");
+    const users = await User.bulkCreate(userData, {
+      individualHooks: true,
+      returning: true,
+    });
 
-  process.exit(0);
-}
+    for (const pet of petData) {
+      const user = users.find((user) => user.id === pet.user_id);
+      if (user) {
+        await Pets.create({
+          ...pet,
+          user_id: user.id,
+        });
+      } else {
+        console.error(`User not found for pet with user_id: ${pet.user_id}`);
+      }
+    }
 
-seedAll();
+    console.log("Database seeded successfully.");
+  } catch (error) {
+    console.error("Error seeding the database:", error);
+  } finally {
+    process.exit(0);
+  }
+};
+
+seedDatabase();
