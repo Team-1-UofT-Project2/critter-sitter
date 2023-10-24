@@ -11,3 +11,9 @@ document.addEventListener("DOMContentLoaded", function () {
 function goBack() {
   window.history.back();
 }
+
+function redirectToEditPage() {
+  const id = window.location.toString().split('/')[
+    window.location.toString().split('/').length -1];
+  window.location.href = `/api/pets/edit-pet/${id}`;
+}
