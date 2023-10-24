@@ -114,8 +114,9 @@ router.post("/signup", async (req, res) => {
   try {
     const userData = await User.create(req.body);
 
+    req.session.user_id = userData.dataValues.user_id;
     req.session.save(() => {
-      req.session.user_id = userData.id;
+      req.session.user_id = userData.dataValues.user_id;
       req.session.loggedIn = true;
       res.status(200).json({
         user: userData,
@@ -148,7 +149,7 @@ router.post("/login", async (req, res) => {
         .status(400)
         .json({ message: "Incorrect username or password. Please try again!" });
     }
-    // req.session.user_id = findUser.dataValues.user_id;
+    req.session.user_id = findUser.dataValues.user_id;
     // console.log(req.session.user_id);
     req.session.save(() => {
       // req.session.user_id = findUser.id;

@@ -1,10 +1,14 @@
-<div class="box box1">
-  <div class="text">
-    <h2 class="pet-name">Rover</h2>
-    <h2 class="owner">Owner: Wesley</h2>
-  </div>
-  <img src="../public/images/pet1-profile-pic.jpg" alt="Pet" />
-</div>
+{{#if pets}}
+  {{#each pets as |pet|}}
+    <div class="box box1">
+      <div class="text">
+        <h2 class="pet-name">{{pet.pet_name}}</h2>
+        <h2 class="owner">Owner: {{pet.owner}}</h2>
+      </div>
+      <img src="../public/images/pet1-profile-pic.jpg" alt="Pet" />
+    </div>
+  {{/each}}
+{{/if}}
 
 {{! <div class="box box1">
   <div class="text">
