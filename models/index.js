@@ -11,6 +11,10 @@ User.hasMany(Pets, {
   foreignKey: "user_id",
 });
 
+Pets.belongsTo(User, {
+  foreignKey: "user_id",
+});
+
 Instructions.belongsTo(User, {
   foreignKey: "user_id",
   onDelete: "CASCADE",

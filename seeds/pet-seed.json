@@ -1,0 +1,44 @@
+[
+  {
+    "pet_name": "Rover",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "low",
+    "description": "yellow labrador dog"
+  },
+  {
+    "pet_name": "mr.mittens",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "high",
+    "description": "black and grey tabbie cat that is 9 years old with type 2 diabetes"
+  },
+  {
+    "pet_name": "Ceasar",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "mid",
+    "description": "a black and yellow speckled koi fish"
+  },
+  {
+    "pet_name": "tito",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "high",
+    "description": "a tanned chihuahua with its front paw missing and a bad case of scoliosis"
+  },
+  {
+    "pet_name": "munster",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "low",
+    "description": "a gray-furred Persian cat"
+  },
+  {
+    "pet_name": "senor slithers",
+    "owner": "Wesley",
+    "address": "Southern Av, 420, Surrey, BC, Canada",
+    "care_level": "mid",
+    "description": "a green ball python with a yellow under-belly"
+  }
+]
