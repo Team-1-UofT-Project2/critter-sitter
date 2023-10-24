@@ -9,8 +9,16 @@ router.get("/", withAuth, async (req, res) => {
       attributes: { exclude: ["password"] },
     });
 
-    console.log(req.session.user_id);
-    res.render("dashboard", { loggedIn: true });
+    const petData = await Pets.findAll({
+      where: {
+        user_id: req.session.user_id,
+      },
+      raw: true,
+      nest: true,
+    });
+
+    console.log(petData);
+    res.render("dashboard", { loggedIn: true, pets: petData });
   } catch (err) {
     res.status(500).json(err);
   }
