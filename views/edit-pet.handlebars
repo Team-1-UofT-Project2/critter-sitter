@@ -4,62 +4,85 @@
     <div class="box-container">
       <div class="pet-form-wrapper">
         <div class="pet-form-container">
-          <form class="pet-form">
-            <label for="name">Name: </label>
-            <input type="text" id="name" name="name" value="{{pet.pet_name}}" />
-            <label for="owner">Owner: </label>
-            <input type="text" id="owner" name="owner" value="{{pet.owner}}" />
-            <label for="address">Address: </label>
-            <input
-              type="text"
-              id="address"
-              name="address"
-              value="{{pet.address}}"
-            />
-            <div class="radio-buttons-container">
-              <div class="radio-button-label">
-                <label for="care-level">Care Level: {{pet.care_level}}</label>
+          <form id="edit-pet-form" class="pet-form">
+            <div id="top-left-container">
+              <label for="name">Name: </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value="{{pet.pet_name}}"
+              />
+              <label for="owner">Owner: </label>
+              <input
+                type="text"
+                id="owner"
+                name="owner"
+                value="{{pet.owner}}"
+              />
+              <label for="address">Address: </label>
+              <input
+                type="text"
+                id="address"
+                name="address"
+                value="{{pet.address}}"
+              />
+              <div class="radio-buttons-container">
+                <div class="radio-button-label">
+                  <label for="care-level">Care Level: {{pet.care_level}}</label>
+                </div>
+                <label class="radio-button">
+                  <input type="radio" name="care-level" value="very low" />
+                  Very Low
+                </label>
+                <label class="radio-button">
+                  <input type="radio" name="care-level" value="low" />
+                  Low
+                </label>
+                <label class="radio-button">
+                  <input type="radio" name="care-level" value="medium" />
+                  Medium
+                </label>
+                <label class="radio-button">
+                  <input type="radio" name="care-level" value="high" />
+                  High
+                </label>
+                <label class="radio-button">
+                  <input type="radio" name="care-level" value="very high" />
+                  Very High
+                </label>
               </div>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="very low" />
-                Very Low
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="low" />
-                Low
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="medium" />
-                Medium
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="high" />
-                High
-              </label>
-              <label class="radio-button">
-                <input type="radio" name="care-level" value="very high" />
-                Very High
-              </label>
             </div>
-            <div class="description-box">
-              <label for="description">Description</label>
-              <textarea
-                id="description"
-                name="description"
-                rows="15"
-                style="resize: none"
-              >{{pet.description}}</textarea>
+            <div id="bottom-left-container">
+              <div class="description-box">
+                <label for="description">Description</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  rows="15"
+                  style="resize: none"
+                >{{pet.description}}</textarea>
+              </div>
             </div>
-            <div id="upload-button">
-              <img class="pet-profile-pic" src="/images/{{pet.image}}" />
+            <div class="edit-pic-positioning">
+              <div id="top-right-container">
+                <div id="upload-button">
+                  <img class="pet-profile-pic" src="/images/{{pet.image}}" />
+                </div>
+              </div>
             </div>
-            <div id="pet-save-cancel-buttons">
-              <button
-                type="submit"
-                class="pet-save-btn"
-                data-petid="{{pet.pet_id}}"
-              >Save Changes</button>
-              <button class="pet-cancel-btn" onclick="goBack()">Cancel</button>
+            <div id="bottom-right-container">
+              <div id="pet-save-cancel-buttons">
+                <button
+                  type="submit"
+                  class="pet-save-btn"
+                  data-petid="{{pet.pet_id}}"
+                >Save</button>
+                <button
+                  class="pet-cancel-btn"
+                  onclick="goBack()"
+                >Cancel</button>
+              </div>
             </div>
           </form>
         </div>
