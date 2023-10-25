@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
+const { upload } = require("../../utils/image-uploader");
 //const { upload } = require('../../utils/image-uploader')
 
 // Route to get a single pet with the url id
@@ -191,5 +192,8 @@ router.get("/query", (req, res) => {
       res.status(500).json(err);
     });
 });*/
+router.post('/', upload.single('image'), (req, res) =>{
+  res.send('image loaded successfully')
+})
 
 module.exports = router;
