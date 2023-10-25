@@ -445,6 +445,8 @@ textarea {
   grid-row: 2 / 3;
   grid-column: 1 / 2; /* Adjusted grid position */
   padding: 20px;
+  max-width: 800px;
+  word-wrap: break-word;
 }
 
 .description-box label {
