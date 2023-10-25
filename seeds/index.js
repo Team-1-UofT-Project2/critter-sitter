@@ -19,12 +19,12 @@ const seedDatabase = async () => {
         (user) => user.dataValues.user_id === pet.user_id
       );
       if (user) {
+        console.log("This is the user: ", user);
         await Pets.create({
           ...pet,
-          user_id: user.id,
+          user_id: user.dataValues.user_id,
         });
       } else {
-        console.log(user);
         console.log(pet.user_id);
         console.error(`User not found for pet with user_id: ${pet.user_id}`);
       }
