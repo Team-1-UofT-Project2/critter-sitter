@@ -15,13 +15,17 @@ const seedDatabase = async () => {
     });
 
     for (const pet of petData) {
-      const user = users.find((user) => user.id === pet.user_id);
+      const user = users.find(
+        (user) => user.dataValues.user_id === pet.user_id
+      );
       if (user) {
         await Pets.create({
           ...pet,
           user_id: user.id,
         });
       } else {
+        console.log(user);
+        console.log(pet.user_id);
         console.error(`User not found for pet with user_id: ${pet.user_id}`);
       }
     }
