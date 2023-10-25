@@ -4,20 +4,28 @@
     <div class="box-container">
       <div class="pet-form-wrapper">
         <div class="pet-form-container">
-          <form class="pet-form">
-            <label for="name">Name: {{pet.pet_name}}</label>
-            <label for="owner">Owner: {{pet.owner}}</label>
-            <label for="address">Address: {{pet.address}}</label>
+          <form class="pet-form" id="single-pet-form">
+            <label class="single-pet-label" for="name">Name:
+              <p class="single-pet-answers">{{pet.pet_name}}</p></label>
+            <label class="single-pet-label" for="owner">Owner:
+              <p class="single-pet-answers">{{pet.owner}}</p></label>
+            <label class="single-pet-label" for="address">Address:
+              <p class="single-pet-answers">{{pet.address}}</p></label>
+            <label class="single-pet-label" for="care-level">Care Level:
+              <p class="single-pet-answers">{{pet.care_level}}</p></label>
             <div class="radio-buttons-container">
-              <div class="radio-button-label">
+              {{!-- <div class="radio-button-label">
                 <label for="care-level">Care Level: {{pet.care_level}}</label>
-              </div>
+              </div> --}}
             </div>
           </form>
           <div class="description-box">
-            <label for="description">Description</label>
+            <label
+              class="single-pet-label"
+              for="description"
+            >Description</label>
             <p
-              class="pet-description"
+              class="single-pet-description"
               id="description"
               name="description"
               rows="15"
@@ -36,8 +44,12 @@
             />
           </div>
           <div id="pet-save-cancel-buttons">
-            <button class="pet-save-btn" onclick="redirectToEditPage()">Edit Pet</button>
-            <button class="pet-cancel-btn">Delete Pet</button>
+            <button
+              id="save-petbtn"
+              class="pet-save-btn"
+              onclick="redirectToEditPage()"
+            >Edit Pet</button>
+            <button id="cancel-petbtn" class="pet-cancel-btn">Delete Pet</button>
           </div>
         </div>
       </div>

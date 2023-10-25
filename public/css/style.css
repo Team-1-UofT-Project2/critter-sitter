@@ -295,15 +295,52 @@ footer ul li {
 .pet-form-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
+  /* grid-template-rows: 1fr 1fr; */
   /* gap: 10px 750px; */
   /* border: 1px solid #ccc; */
 }
 
-.pet-form {
+/* .pet-form {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; 
+  display: flex;
+  display: grid;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0;
+  width: 800px;
+} */
+
+#single-pet-form {
   grid-row: 1 / 1;
   grid-column: 1 / 1; /* Adjusted grid position */
-  display: flex;
+  /* display: flex; */
+  display: grid;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0;
+  width: 800px;
+}
+
+#new-pet-form {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; /* Adjusted grid position */
+  /* display: flex; */
+  display: grid;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0;
+  width: 800px;
+}
+
+#edit-pet-form {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; /* Adjusted grid position */
+  /* display: flex; */
+  display: grid;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
@@ -315,6 +352,24 @@ footer ul li {
   color: var(--constrast-color);
   font-weight: bold;
   font-size: 20px;
+}
+
+.single-pet-label {
+  color: var(--constrast-color);
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.single-pet-description {
+  padding: 40px;
+  border-radius: 20px;
+  border: 2px solid var(--light-blue);
+  margin-left: 30px;
+}
+
+.single-pet-answers {
+  font-weight: 200;
 }
 
 .pet-form input {
@@ -329,6 +384,41 @@ textarea {
   width: 100%;
   padding: 10px;
   margin: 10px;
+}
+
+#top-left-container {
+  grid-row: 1 / 1;
+  grid-column: 1 / 1; /* Adjusted grid position */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin: 0;
+  width: 800px;
+}
+
+#bottom-left-container {
+  grid-row: 2 / 3;
+  grid-column: 1 / 2; /* Adjusted grid position */
+  padding: 20px;
+}
+
+#top-right-container {
+  grid-row: 1 / 2; /* Adjusted grid position */
+  grid-column: 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+#bottom-right-container {
+  grid-row: 2 / 3; /* Adjusted grid position */
+  grid-column: 2 / 3;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
 }
 
 .radio-buttons-container {
@@ -368,6 +458,10 @@ textarea {
   border: 2px solid var(--light-blue);
 }
 
+.edit-pic-positioning {
+  margin-left: 70px;
+}
+
 #upload-button {
   grid-row: 1 / 2; /* Adjusted grid position */
   grid-column: 2 / 3;
@@ -375,6 +469,7 @@ textarea {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  margin: 20px;
 }
 
 #pet-save-cancel-buttons {
@@ -410,6 +505,22 @@ textarea {
   border: none;
   color: var(--whiteish-color);
   cursor: pointer;
+  /* margin: 150px; */
+  margin: 140px;
+}
+
+#save-petbtn {
+  background-color: var(--header-color);
+  width: 140px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgb(188, 188, 188);
+  transition: transform 0.3s ease-in-out;
+  border: none;
+  color: var(--whiteish-color);
+  cursor: pointer;
+  /* margin: 140px; */
 }
 
 .pet-cancel-btn {
@@ -423,6 +534,21 @@ textarea {
   border: none;
   color: var(--whiteish-color);
   cursor: pointer;
+}
+
+#cancel-petbtn {
+  background-color: red;
+  width: 140px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 20px;
+  box-shadow: 3px 3px 10px rgb(188, 188, 188);
+  transition: transform 0.3s ease-in-out;
+  border: none;
+  color: var(--whiteish-color);
+  cursor: pointer;
+  /* margin: 100px; */
+  margin-right: 110px;
 }
 
 .login-btn {
@@ -502,4 +628,8 @@ textarea {
   border: 2px solid var(--light-blue);
   width: 600px;
   height: 350px;
+  /* margin-left: 115px; */
+}
+
+@media screen and (max-width: 768px) {
 }
