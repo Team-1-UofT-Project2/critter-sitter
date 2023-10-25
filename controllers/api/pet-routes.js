@@ -7,7 +7,7 @@ const path = require("path");
 
 // Route to get a single pet with the url id
 router.get("/edit-pet/:id", withAuth, async (req, res) => {
-  console.log("Edit pet route hit");
+  // console.log("Edit pet route hit");
   try {
     const petData = await Pets.findByPk(req.params.id);
 
@@ -46,8 +46,8 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const pet = petsWithInstructions.toJSON();
     const loggedIn = req.session.user_id ? true : false;
-    console.log("Requested Pet ID:", req.params.id);
-    console.log(pets);
+    // console.log("Requested Pet ID:", req.params.id);
+    // console.log(pets);
     res.render("single-pet", {
       loggedIn: loggedIn,
       loggedInUser: req.session.user_id,
@@ -85,7 +85,7 @@ router.post(
       // Extract the filename from the full path
       // newPet.image = path.basename(req.file.path);
 
-      console.log(newPet.image);
+      // console.log(newPet.image);
       res.status(200).json(newPet);
     } catch (err) {
       res.status(400).json(err);
@@ -124,7 +124,7 @@ router.put("/edit/:id", withAuth, async (req, res) => {
       return;
     }
 
-    console.log(petData);
+    // console.log(petData);
 
     petData.pet_name = req.body.pet_name;
     petData.owner = req.body.owner;

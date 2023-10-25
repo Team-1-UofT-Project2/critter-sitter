@@ -9,11 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function goBack() {
-  window.history.back();
+  // window.history.back();
+  window.location.href = "/dashboard";
 }
 
 function redirectToEditPage() {
-  const id = window.location.toString().split('/')[
-    window.location.toString().split('/').length -1];
+  const id = window.location.toString().split("/")[
+    window.location.toString().split("/").length - 1
+  ];
   window.location.href = `/api/pets/edit-pet/${id}`;
 }
