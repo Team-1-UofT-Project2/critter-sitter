@@ -4,7 +4,12 @@
     <div class="box-container">
       <div class="pet-form-wrapper">
         <div class="pet-form-container">
-          <form class="pet-form">
+          <form
+            class="pet-form"
+            action="/new-pet"
+            method="post"
+            enctype="multipart/form-data"
+          >
             <label for="name">Name: </label>
             <input type="text" id="name" name="name" />
             <label for="owner">Owner: </label>
@@ -46,7 +51,14 @@
               ></textarea>
             </div>
             <div id="upload-button">
-              <button class="upload-pic-btn">Upload Picture</button>
+              {{! <button class="upload-pic-btn">Upload Picture</button> }}
+              <!-- views/add-pet.html -->
+
+              <br />
+              <label for="picture">Pet Picture:</label>
+              <input type="file" name="image" id="image" />
+              <br />
+
             </div>
             <div id="pet-save-cancel-buttons">
               <button type="submit" class="pet-save-btn">Save Pet</button>

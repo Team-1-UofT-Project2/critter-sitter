@@ -4,41 +4,47 @@
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "low",
-    "description": "yellow labrador dog"
+    "description": "yellow labrador dog",
+    "image": "1698207421011--pet5-profile-pic.jpg"
   },
   {
     "pet_name": "mr.mittens",
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "high",
-    "description": "black and grey tabbie cat that is 9 years old with type 2 diabetes"
+    "description": "black and grey tabbie cat that is 9 years old with type 2 diabetes",
+    "image": "1698207617912--pet1-profile-pic.jpg"
   },
   {
     "pet_name": "Ceasar",
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "mid",
-    "description": "a black and yellow speckled koi fish"
+    "description": "a black and yellow speckled koi fish",
+    "image": "1698207967861--pet2-profile-pic.jpg"
   },
   {
     "pet_name": "tito",
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "high",
-    "description": "a tanned chihuahua with its front paw missing and a bad case of scoliosis"
+    "description": "a tanned chihuahua with its front paw missing and a bad case of scoliosis",
+    "image": "1698208098098--puppy-2785074_1920.jpg"
   },
   {
     "pet_name": "munster",
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "low",
-    "description": "a gray-furred Persian cat"
+    "description": "a gray-furred Persian cat",
+    "image": "1698208324748--pet3-profile-pic.jpg"
   },
   {
     "pet_name": "senor slithers",
     "owner": "Wesley",
     "address": "Southern Av, 420, Surrey, BC, Canada",
     "care_level": "mid",
-    "description": "a green ball python with a yellow under-belly"
+    "description": "a green ball python with a yellow under-belly",
+    "image": "1698208531290--pet5-profile-pic.jpg"
   }
 ]

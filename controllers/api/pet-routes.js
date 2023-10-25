@@ -1,8 +1,9 @@
 const router = require("express").Router();
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
+//const imageUploader = require("../../utils/image-uploader");
 const { upload } = require("../../utils/image-uploader");
-//const { upload } = require('../../utils/image-uploader')
+const path = require("path");
 
 // Route to get a single pet with the url id
 router.get("/edit-pet/:id", withAuth, async (req, res) => {
@@ -58,23 +59,39 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
-router.post("/new-pet", withAuth, async (req, res) => {
-  try {
-    const newPet = await Pets.create({
-      pet_name: req.body.pet_name,
-      owner: req.body.owner,
-      address: req.body.address,
-      care_level: req.body.care_level,
-      description: req.body.description,
-      user_id: req.session.user_id,
-      //image: req.file.path // adding the user_id to associate the pet with the logged-in user
-    });
+router.post(
+  "/new-pet",
+  withAuth,
+  upload.single("image"), // Use "imageUploader" here
+  async (req, res) => {
+    try {
+      const newPet = await Pets.create({
+        pet_name: req.body.pet_name,
+        owner: req.body.owner,
+        address: req.body.address,
+        care_level: req.body.care_level,
+        description: req.body.description,
+        user_id: req.session.user_id,
+        image: path.basename(req.file.path),
+      });
 
-    res.status(200).json(newPet);
-  } catch (err) {
-    res.status(400).json(err);
+      // Add the uploaded file path to the newPet object
+      // newPet.image = req.file.path;
+      // newPet.image = `\\${req.file.path}`;
+      // newPet.image = `\\${req.file.path}`.replace(/\\/g, "/");
+
+      // const path = require("path");
+
+      // Extract the filename from the full path
+      // newPet.image = path.basename(req.file.path);
+
+      console.log(newPet.image);
+      res.status(200).json(newPet);
+    } catch (err) {
+      res.status(400).json(err);
+    }
   }
-});
+);
 
 router.delete("/:id", withAuth, async (req, res) => {
   try {
@@ -191,9 +208,9 @@ router.get("/query", (req, res) => {
       console.log(err);
       res.status(500).json(err);
     });
+});
+router.post("/", upload.single("image"), (req, res) => {
+  res.send("image loaded successfully");
 });*/
-router.post('/', upload.single('image'), (req, res) =>{
-  res.send('image loaded successfully')
-})
 
 module.exports = router;
