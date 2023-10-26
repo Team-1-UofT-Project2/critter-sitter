@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function goBack() {
   // window.history.back();
+  console.log("Button clicked");
   window.location.href = "/dashboard";
 }
 

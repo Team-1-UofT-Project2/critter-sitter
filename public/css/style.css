@@ -635,3 +635,49 @@ textarea {
 
 @media screen and (max-width: 768px) {
 }
+
+/* Css for hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #f2f2f2;
+  padding: 60px 0;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Center content vertically with images */
+  width: 80%;
+  margin: 20px;
+}
+
+.hero-content img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 20px;
+  border: 5px solid var(--light-blue);
+}
+
+.hero-content p {
+  padding: 20px;
+  text-align: left; /* Align text to the left within its container */
+}
+
+/* Add this CSS for alternating content sections */
+.hero-content:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+/* Style the left image (odd content) */
+.hero-content:nth-child(odd) .hero-left-image {
+  margin-right: 20px;
+}
+
+/* Style the right image (even content) */
+.hero-content:nth-child(even) .hero-right-image {
+  margin-left: 20px;
+}
