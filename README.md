@@ -19,6 +19,14 @@
 - Logging Out: Users can click on the "Logout" icon to securely exit the platform.
 By following these steps, pet sitters can ensure that they are always informed and prepared to provide the best care possible for each unique pet.
 
+## Screenshot of the Website
+![Sign-Up Page](./public/images/screenshots/sign_up-page.png)
+![Login Page](./public/images/screenshots/login-page.png)
+![Dashboard Page](./public/images/screenshots/dashboard.png)
+![Pet-Page](./public/images/screenshots/pet-page.png)
+![Edit Page](./public/images/screenshots/edit_pet-page.png)
+![Homepage](./public/images/screenshots/home-page.png)
+![Homepage 2](./public/images/screenshots/home-page-2.png)
 
 ## Technologies Used
 Server & Routing:
