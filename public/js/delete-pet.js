@@ -1,3 +1,4 @@
+// Function to handle the deletion of a pet
 async function deletePetForm(event) {
   console.log("Delete button clicked");
   event.preventDefault();
@@ -14,8 +15,11 @@ async function deletePetForm(event) {
   if (response.ok) {
     document.location.replace("/dashboard");
   } else {
-    alert('Failed to delete pet');
+    alert("Failed to delete pet");
   }
 }
 
-document.querySelector('.pet-cancel-btn').addEventListener('click', deletePetForm);
+// Add a click event listener to the "pet-cancel-btn" element
+document
+  .querySelector(".pet-cancel-btn")
+  .addEventListener("click", deletePetForm);

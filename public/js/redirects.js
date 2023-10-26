@@ -1,3 +1,4 @@
+//redirects
 document.addEventListener("DOMContentLoaded", function () {
   const addButton = document.getElementById("add-pet-button");
   if (addButton) {
@@ -9,7 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function goBack() {
-  // window.history.back();
   console.log("Button clicked");
   window.location.href = "/dashboard";
 }

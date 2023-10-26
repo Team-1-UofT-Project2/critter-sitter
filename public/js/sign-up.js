@@ -1,3 +1,4 @@
+// handler to sign up
 const signupHandler = async (event) => {
   event.preventDefault();
 

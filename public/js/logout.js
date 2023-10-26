@@ -1,3 +1,4 @@
+// handler to logout
 const logoutButton = document.querySelector("#logout");
 
 if (logoutButton) {

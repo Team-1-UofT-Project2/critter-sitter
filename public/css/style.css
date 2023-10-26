@@ -18,16 +18,12 @@ body {
 }
 
 header {
-  /* background-color: var(--header-color); */
-  /* Linear Gradient Background */
   background: linear-gradient(
     to bottom,
     var(--header-color),
     var(--medium-blue),
     var(--light-blue)
   );
-
-  /* padding: 10px 20px; */
 }
 
 .header-text {
@@ -159,9 +155,6 @@ footer ul li {
 }
 
 .main {
-  /* height: calc(100vh - 70px); */
-  /* width: 100%; */
-  /* overflow-y: scroll; */
   overflow-x: hidden;
   padding: 30px;
   margin-bottom: 40px;
@@ -171,9 +164,7 @@ footer ul li {
   display: flex;
   justify-content: flex-start;
   align-content: flex-start;
-  /* align-items: center; */
   flex-wrap: wrap;
-  /* gap: 80px; */
   overflow-y: scroll;
   height: calc(75vh - 70px);
 }
@@ -208,7 +199,6 @@ footer ul li {
 .pets-container {
   min-height: 300px;
   max-width: 1700px;
-  /* margin: 70px auto 0px auto; */
   margin: auto;
   background-color: #ffffff;
   border-radius: 30px;
@@ -283,34 +273,16 @@ footer ul li {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* height: 100vh; */
-  /* margin: 0; */
 }
 
 .pet-form-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  /* grid-template-rows: 1fr 1fr; */
-  /* gap: 10px 750px; */
-  /* border: 1px solid #ccc; */
 }
-
-/* .pet-form {
-  grid-row: 1 / 1;
-  grid-column: 1 / 1; 
-  display: flex;
-  display: grid;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px;
-  margin: 0;
-  width: 800px;
-} */
 
 #single-pet-form {
   grid-row: 1 / 1;
-  grid-column: 1 / 1; /* Adjusted grid position */
-  /* display: flex; */
+  grid-column: 1 / 1;
   display: grid;
   flex-direction: column;
   align-items: flex-start;
@@ -321,8 +293,7 @@ footer ul li {
 
 #new-pet-form {
   grid-row: 1 / 1;
-  grid-column: 1 / 1; /* Adjusted grid position */
-  /* display: flex; */
+  grid-column: 1 / 1;
   display: grid;
   flex-direction: column;
   align-items: flex-start;
@@ -333,8 +304,7 @@ footer ul li {
 
 #edit-pet-form {
   grid-row: 1 / 1;
-  grid-column: 1 / 1; /* Adjusted grid position */
-  /* display: flex; */
+  grid-column: 1 / 1;
   display: grid;
   flex-direction: column;
   align-items: flex-start;
@@ -383,7 +353,7 @@ textarea {
 
 #top-left-container {
   grid-row: 1 / 1;
-  grid-column: 1 / 1; /* Adjusted grid position */
+  grid-column: 1 / 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -394,12 +364,12 @@ textarea {
 
 #bottom-left-container {
   grid-row: 2 / 3;
-  grid-column: 1 / 2; /* Adjusted grid position */
+  grid-column: 1 / 2;
   padding: 20px;
 }
 
 #top-right-container {
-  grid-row: 1 / 2; /* Adjusted grid position */
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
   display: flex;
   justify-content: center;
@@ -408,7 +378,7 @@ textarea {
 }
 
 #bottom-right-container {
-  grid-row: 2 / 3; /* Adjusted grid position */
+  grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: flex;
   justify-content: space-evenly;
@@ -417,13 +387,12 @@ textarea {
 }
 
 .radio-buttons-container {
-  grid-row: 1 / 2; /* Adjusted grid position */
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 20px;
-  /* text-align: center; */
 }
 
 .radio-button {
@@ -438,7 +407,7 @@ textarea {
 
 .description-box {
   grid-row: 2 / 3;
-  grid-column: 1 / 2; /* Adjusted grid position */
+  grid-column: 1 / 2;
   padding: 20px;
   max-width: 800px;
   word-wrap: break-word;
@@ -460,7 +429,7 @@ textarea {
 }
 
 #upload-button {
-  grid-row: 1 / 2; /* Adjusted grid position */
+  grid-row: 1 / 2;
   grid-column: 2 / 3;
   display: flex;
   justify-content: center;
@@ -470,7 +439,7 @@ textarea {
 }
 
 #pet-save-cancel-buttons {
-  grid-row: 2 / 3; /* Adjusted grid position */
+  grid-row: 2 / 3;
   grid-column: 2 / 3;
   display: flex;
   justify-content: space-evenly;
@@ -502,7 +471,6 @@ textarea {
   border: none;
   color: var(--whiteish-color);
   cursor: pointer;
-  /* margin: 150px; */
   margin: 140px;
   margin-left: 220px;
 }
@@ -518,7 +486,6 @@ textarea {
   border: none;
   color: var(--whiteish-color);
   cursor: pointer;
-  /* margin: 140px; */
 }
 
 .pet-cancel-btn {
@@ -545,7 +512,6 @@ textarea {
   border: none;
   color: var(--whiteish-color);
   cursor: pointer;
-  /* margin: 100px; */
   margin-right: 110px;
 }
 
@@ -602,16 +568,10 @@ textarea {
 }
 
 .form-input {
-  /* text-align: center; */
   width: 30%;
   border-radius: 20px;
   border: 2px solid var(--light-blue);
 }
-
-/* .sign-up-btn {
-  display: block;
-  margin: 0 auto;
-} */
 
 .sign-up-today,
 .login-now {
@@ -626,7 +586,6 @@ textarea {
   border: 2px solid var(--light-blue);
   width: 600px;
   height: 350px;
-  /* margin-left: 115px; */
 }
 
 @media screen and (max-width: 768px) {
@@ -646,7 +605,7 @@ textarea {
 .hero-content {
   display: flex;
   flex-direction: row;
-  align-items: center; /* Center content vertically with images */
+  align-items: center;
   width: 80%;
   margin: 20px;
 }
@@ -660,20 +619,17 @@ textarea {
 
 .hero-content p {
   padding: 20px;
-  text-align: left; /* Align text to the left within its container */
+  text-align: left;
 }
 
-/* Add this CSS for alternating content sections */
 .hero-content:nth-child(even) {
   flex-direction: row-reverse;
 }
 
-/* Style the left image (odd content) */
 .hero-content:nth-child(odd) .hero-left-image {
   margin-right: 20px;
 }
 
-/* Style the right image (even content) */
 .hero-content:nth-child(even) .hero-right-image {
   margin-left: 20px;
 }
@@ -693,7 +649,7 @@ textarea {
     display: inline-grid;
     flex-direction: column;
     align-items: center;
-    gap: 30px; /* Spacing between stacked elements */
+    gap: 30px;
     margin-bottom: 20px;
   }
 
@@ -702,9 +658,9 @@ textarea {
   }
 
   nav li img {
-    width: 360px; /* Adjust as needed */
-    height: 200px; /* Adjust as needed */
-    margin-left: auto; /* These two lines will center the logo */
+    width: 360px;
+    height: 200px;
+    margin-left: auto;
     margin-right: auto;
   }
 

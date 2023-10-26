@@ -1,8 +1,9 @@
+// Import the data models for Instructions, User, and Pets
 const Instructions = require("./Instructions");
 const User = require("./User");
 const Pets = require("./Pets");
 
-//Working associations
+// Define associations between the data models
 User.hasMany(Instructions, {
   foreignKey: "user_id",
 });
@@ -25,4 +26,5 @@ Pets.hasMany(Instructions, {
   onDelete: "CASCADE",
 });
 
+// Export the associated models for use in the application
 module.exports = { User, Instructions, Pets };
