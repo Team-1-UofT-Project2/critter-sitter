@@ -119,7 +119,7 @@ footer {
     var(--medium-blue),
     var(--light-blue)
   );
-  padding: 5px 600px; /* Adjust the padding as needed */
+  /*padding: 5px 600px; */
   text-align: center;
   color: var(--whiteish-color);
   font-weight: bold;
@@ -687,14 +687,14 @@ textarea {
     display: inline-grid;
     flex-direction: column;
     align-items: center;
-    gap: 30px;  /* Spacing between stacked elements */
+    gap: 30px; /* Spacing between stacked elements */
   }
 
   nav li img {
-      width: 400px;  /* Adjust as needed */
-      height: 200px;  /* Adjust as needed */
-      margin-left: auto;   /* These two lines will center the logo */
-      margin-right: auto;
+    width: 400px; /* Adjust as needed */
+    height: 200px; /* Adjust as needed */
+    margin-left: auto; /* These two lines will center the logo */
+    margin-right: auto;
   }
 
   .header-text {
@@ -704,7 +704,7 @@ textarea {
   .logout-button {
     font-size: 30px;
   }
-  
+
   #get-started-btn {
     font-size: 30px;
   }
@@ -712,9 +712,7 @@ textarea {
 
 /* Medium devices (tablets) */
 @media (min-width: 768px) and (max-width: 1300px) {
-
-
   nav li img {
     margin-right: auto;
-}
+  }
 }
