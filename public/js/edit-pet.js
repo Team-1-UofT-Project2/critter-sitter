@@ -24,7 +24,7 @@ document.querySelector(".pet-save-btn").addEventListener("click", async () => {
       }),
     });
     // console.log(body);
-    window.location.href = `/api/pets/${petId}`;
+    window.location.href = "/dashboard";
   } catch (error) {
     console.error("Error:", error);
   }
