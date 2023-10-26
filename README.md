@@ -43,7 +43,7 @@ Environment Variables:
 - Install Dependencies: Run 'npm install' to install all required dependencies for the project.
 - Set Up Environment Variables: Rename '.env.example' to '.env' and fill out the necessary configurations such as the database credentials.
 - Configure the Database Using MySQL: Ensure that you have MySQL set up on your local machine or use a remote MySQL provider. Use the provided schema in the db folder to set up your database.
-- Heroku Deployment: Create a new Heroku application using heroku create. Provision a clearDB or JawsDB MySQL add-on for your Heroku app. Push your local repository to Heroku using git push heroku main or git push heroku master depending on your default branch name. Ensure environment variables on Heroku are set, especially if there are any secret keys or database URLs.
+- Heroku Deployment: Create a new Heroku application using heroku create. Push your local repository to Heroku using git push heroku main or git push heroku master depending on your default branch name. Ensure environment variables on Heroku are set.
 - Access the Application: Open the deployed application in a browser using the link provided by Heroku or by running the command heroku open.
 
 ## Contribution

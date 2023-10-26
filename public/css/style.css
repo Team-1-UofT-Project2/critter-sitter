@@ -119,7 +119,6 @@ footer {
     var(--medium-blue),
     var(--light-blue)
   );
-  padding: 5px 600px; /* Adjust the padding as needed */
   text-align: center;
   color: var(--whiteish-color);
   font-weight: bold;
