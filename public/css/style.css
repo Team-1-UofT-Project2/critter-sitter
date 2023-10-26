@@ -681,3 +681,40 @@ textarea {
 .hero-content:nth-child(even) .hero-right-image {
   margin-left: 20px;
 }
+
+@media (max-width: 767px) {
+  nav ul {
+    display: inline-grid;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;  /* Spacing between stacked elements */
+  }
+
+  nav li img {
+      width: 400px;  /* Adjust as needed */
+      height: 200px;  /* Adjust as needed */
+      margin-left: auto;   /* These two lines will center the logo */
+      margin-right: auto;
+  }
+
+  .header-text {
+    font-size: 30px;
+  }
+
+  .logout-button {
+    font-size: 30px;
+  }
+  
+  #get-started-btn {
+    font-size: 30px;
+  }
+}
+
+/* Medium devices (tablets) */
+@media (min-width: 768px) and (max-width: 1300px) {
+
+
+  nav li img {
+    margin-right: auto;
+}
+}
