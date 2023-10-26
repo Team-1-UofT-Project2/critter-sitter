@@ -2,7 +2,7 @@
 
 ## Link to Deployed Application
 
-<a href="">Critter-Sitter</a>
+<a href="https://desolate-cliffs-01368-b072fa39f7d0.herokuapp.com/">Critter-Sitter</a>
 
 ## Description
 - Every animal is unique, and so are their needs.
@@ -29,20 +29,14 @@ By following these steps, pet sitters can ensure that they are always informed a
 ![Homepage 2](./public/images/screenshots/home-page-2.png)
 
 ## Technologies Used
-Server & Routing:
 - Express.js: A web application framework for creating server-side applications.
-Database:
 - MySQL2: A relational database management system.
 - Sequelize: A promise-based Node.js ORM for MySQL
-Authentication & Session Management:
 - Bcrypt: For hashing passwords and ensuring data security.
 - Express-session: For managing user sessions.
 - Connect-session-sequelize: To store session data with Sequelize.
-Templating:
 - Express-handlebars: A templating engine to render dynamic views.
-File Upload:
 - Multer: A middleware for handling multipart/form-data, primarily used for uploading files.
-Environment Variables:
 - Dotenv: A module for loading environment variables from a .env file.
 
 ## Installation
