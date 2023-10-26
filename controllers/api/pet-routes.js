@@ -1,13 +1,14 @@
+// Import the 'express' library and create a router instance
 const router = require("express").Router();
+
+// Import necessary models and utilities
 const { Pets, User, Instructions } = require("../../models");
 const withAuth = require("../../utils/authorize");
-//const imageUploader = require("../../utils/image-uploader");
 const { upload } = require("../../utils/image-uploader");
 const path = require("path");
 
-// Route to get a single pet with the url id
+// Route to get a single pet with the URL parameter 'id'
 router.get("/edit-pet/:id", withAuth, async (req, res) => {
-  // console.log("Edit pet route hit");
   try {
     const petData = await Pets.findByPk(req.params.id);
 
@@ -25,6 +26,7 @@ router.get("/edit-pet/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route to get a single pet with the URL parameter 'id' and its associated instructions
 router.get("/:id", withAuth, async (req, res) => {
   try {
     const petsWithInstructions = await Pets.findByPk(req.params.id, {
@@ -46,8 +48,6 @@ router.get("/:id", withAuth, async (req, res) => {
 
     const pet = petsWithInstructions.toJSON();
     const loggedIn = req.session.user_id ? true : false;
-    // console.log("Requested Pet ID:", req.params.id);
-    // console.log(pets);
     res.render("single-pet", {
       loggedIn: loggedIn,
       loggedInUser: req.session.user_id,
@@ -59,6 +59,7 @@ router.get("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route to create a new pet
 router.post(
   "/new-pet",
   withAuth,
@@ -74,18 +75,6 @@ router.post(
         user_id: req.session.user_id,
         image: path.basename(req.file.path),
       });
-
-      // Add the uploaded file path to the newPet object
-      // newPet.image = req.file.path;
-      // newPet.image = `\\${req.file.path}`;
-      // newPet.image = `\\${req.file.path}`.replace(/\\/g, "/");
-
-      // const path = require("path");
-
-      // Extract the filename from the full path
-      // newPet.image = path.basename(req.file.path);
-
-      // console.log(newPet.image);
       res.status(200).json(newPet);
     } catch (err) {
       res.status(400).json(err);
@@ -93,13 +82,12 @@ router.post(
   }
 );
 
+// Route to delete a pet by ID
 router.delete("/:id", withAuth, async (req, res) => {
   try {
     const petData = await Pets.destroy({
       where: {
         pet_id: req.params.id,
-        // user_id: req.session.user_id, // Ensure the user can only delete their own pets
-        // commented out because user_id is undefined and prevents from deleting pet
       },
     });
 
@@ -115,6 +103,7 @@ router.delete("/:id", withAuth, async (req, res) => {
   }
 });
 
+// Route to edit/update an existing pet by ID
 router.put("/edit/:id", withAuth, async (req, res) => {
   try {
     const petData = await Pets.findByPk(req.params.id);
@@ -124,12 +113,9 @@ router.put("/edit/:id", withAuth, async (req, res) => {
       return;
     }
 
-    // console.log(petData);
-
     petData.pet_name = req.body.pet_name;
     petData.owner = req.body.owner;
     petData.address = req.body.address;
-    // petData.care_level = req.body.care_level;
     petData.description = req.body.description;
 
     await petData.save();
@@ -143,74 +129,5 @@ router.put("/edit/:id", withAuth, async (req, res) => {
   }
 });
 
-/* router.get("/:id", withAuth, async (req, res) => {
-  try {
-    const petsWithInstructions = await Pets.findByPk(req.params.id, {
-      include: [
-        User,
-        {
-          model: Instructions,
-          include: User,
-        },
-      ],
-    });
-
-    const pets = petsWithInstructions.get({ plain: true });
-
-    if (!pets) {
-      return res.status(404).json({ error: "Pet not found" });
-    }
-
-    const pet = petsWithInstructions.toJSON();
-
-    const loggedIn = req.session.user_id ? true : false;
-
-    res.render("single-pet", {
-      loggedIn: loggedIn,
-      loggedInUser: req.session.user_id,
-      pet: pet,
-    });
-    console.log(pets);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-}); */
-
-/* router.get("/", withAuth, async (req, res) => {
-  try {
-    const petData = await Pets.findAll({
-      include: [User],
-    });
-
-    res.status(200).json(petData);
-    console.log(petData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-}); */
-
-/*
-router.get("/query", (req, res) => {
-  console.log(req.query);
-  Pets.findAll({
-    where: {
-      // care_level: req.query.care_level
-    },
-  })
-    .then((petData) => {
-      if (!petData) {
-        res.status(404).json({ message: "no pet with this id!" });
-        return;
-      }
-      res.json(petData);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).json(err);
-    });
-});
-router.post("/", upload.single("image"), (req, res) => {
-  res.send("image loaded successfully");
-});*/
-
+// Export the 'router' instance for use in the application
 module.exports = router;

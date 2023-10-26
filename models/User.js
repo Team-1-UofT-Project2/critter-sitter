@@ -1,14 +1,17 @@
+// Import necessary modules from the Sequelize library and other dependencies
 const { Model, DataTypes } = require("sequelize");
 const { sequelize } = require("../config/connection");
 const bcrypt = require("bcrypt");
-// const Pets = require("./Pets");
 
+// Define the 'User' model as a subclass of Sequelize's 'Model'
 class User extends Model {
+  // Custom method to check the provided password against the stored hash
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
   }
 }
 
+// Initialize the 'User' model with its attributes and options
 User.init(
   {
     user_id: {
@@ -39,11 +42,14 @@ User.init(
     },
   },
   {
+    // Define hooks for actions before creating and updating user data
     hooks: {
+      // Before creating a new user, hash the provided password using bcrypt
       async beforeCreate(newUserData) {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
         return newUserData;
       },
+      // Before updating user data, hash the new password if it's being updated
       async beforeUpdate(updatedUserData) {
         updatedUserData.password = await bcrypt.hash(
           updatedUserData.password,
@@ -61,9 +67,5 @@ User.init(
   }
 );
 
-/*User.hasMany(Pets, {
-  foreignKey: 'user_id',
-  onDelete: 'CASCADE', // This will delete associated pets if a user is deleted
-});*/
-
+// Export the 'User' model for use in the application
 module.exports = User;

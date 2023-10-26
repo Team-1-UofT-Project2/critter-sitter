@@ -1,9 +1,13 @@
+// Import necessary modules from the Sequelize library
 const { Model, DataTypes } = require("sequelize");
-const { sequelize } = require("../config/connection");
-// const User = require("./User");
 
+// Import the database connection configuration
+const { sequelize } = require("../config/connection");
+
+// Define the 'Pets' model as a subclass of Sequelize's 'Model'
 class Pets extends Model {}
 
+// Initialize the 'Pets' model with its attributes and options
 Pets.init(
   {
     pet_id: {
@@ -38,9 +42,8 @@ Pets.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      // allowNull: false,
       references: {
-        model: "user", // This should match the model name of your User model
+        model: "user",
         key: "user_id",
       },
     },
@@ -54,8 +57,5 @@ Pets.init(
   }
 );
 
-/*Pets.belongsTo(User, {
-  foreignKey: 'user_id',
-});
-*/
+// Export the 'Pets' model for use in the application
 module.exports = Pets;

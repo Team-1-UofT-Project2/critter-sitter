@@ -1,8 +1,13 @@
+// Import necessary modules from Sequelize library
 const { Model, DataTypes } = require("sequelize");
+
+// Import the database connection configuration
 const { sequelize } = require("../config/connection");
 
+// Define the 'Instructions' model as a subclass of Sequelize's 'Model'
 class Instructions extends Model {}
 
+// Initialize the 'Instructions' model with its attributes and options
 Instructions.init(
   {
     id: {
@@ -20,11 +25,9 @@ Instructions.init(
     },
     user_id: {
       type: DataTypes.INTEGER,
-      // references: {},
     },
     pet_id: {
       type: DataTypes.INTEGER,
-      // references: {},
     },
   },
   {
@@ -35,4 +38,5 @@ Instructions.init(
   }
 );
 
+// Export the 'Instructions' model for use in the application
 module.exports = Instructions;

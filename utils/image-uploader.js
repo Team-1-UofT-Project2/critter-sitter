@@ -3,7 +3,6 @@ const path = require("path");
 
 const filestorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
-    //cb(null, "images/");
     cb(null, "public/images/");
   },
   filename: (req, file, cb) => {
@@ -15,7 +14,6 @@ const fileFilter = (req, file, cb) => {
   if (file.mimetype === "image/jpeg" || file.mimetype === "image/png") {
     cb(null, true);
   } else {
-    //cb(null, false);
     cb(new Error("upload correct file type"));
   }
 };
