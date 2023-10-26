@@ -55,7 +55,7 @@ nav ul {
 }
 
 nav li {
-  margin-right: 40px;
+  /* margin-right: 40px; */
 }
 
 nav li img {
@@ -687,6 +687,10 @@ textarea {
     flex-direction: column;
     align-items: center;
     gap: 30px;  /* Spacing between stacked elements */
+  }
+
+  nav a {
+    margin-left: 30px;
   }
 
   nav li img {
