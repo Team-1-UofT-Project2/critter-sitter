@@ -5,6 +5,9 @@ document.querySelector(".pet-save-btn").addEventListener("click", async () => {
   const owner = document.querySelector("#owner").value;
   const address = document.querySelector("#address").value;
   const description = document.querySelector("#description").value;
+  const careLevel = document.querySelector(
+    'input[name="care-level"]:checked'
+  ).value;
 
   // Inside your event listener for the "Save Changes" button
   try {
@@ -18,6 +21,7 @@ document.querySelector(".pet-save-btn").addEventListener("click", async () => {
         owner,
         address,
         description,
+        care_level: careLevel,
       }),
     });
     window.location.href = "/dashboard";

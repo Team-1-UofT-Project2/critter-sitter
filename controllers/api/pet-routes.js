@@ -117,6 +117,7 @@ router.put("/edit/:id", withAuth, async (req, res) => {
     petData.owner = req.body.owner;
     petData.address = req.body.address;
     petData.description = req.body.description;
+    petData.care_level = req.body.care_level;
 
     await petData.save();
 
